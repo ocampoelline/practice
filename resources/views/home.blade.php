@@ -9,6 +9,9 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    @foreach ($posts as $post)
+                        <div> {{ $post->title }} </div>
+                    @endforeach
                 </div>
             </div>
         </div>
