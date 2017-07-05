@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-<h1>{{ $post->title }}</h1>
-<h1>{{ $post->updated_at }}</h1>
-</body>
-</html>
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>{{ $post->title }}</h1>
+			<h1>{{ $post->updated_at }}</h1>
+
+			@foreach ($post->comments as $comment)
+				<li>{{$comment->body}}</li>
+
+			@endforeach
+        </div>
+    </div>
+</div>
+@endsection

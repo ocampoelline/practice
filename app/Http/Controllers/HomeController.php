@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Auth;
+use Illuminate\Support\Facades\Input;
 class HomeController extends Controller
 {
     /**
@@ -11,6 +13,7 @@ class HomeController extends Controller
      *
      * @return void
      */
+    
     public function __construct()
     {
         $this->middleware('auth');
@@ -31,5 +34,19 @@ class HomeController extends Controller
     {
 
         return view('show', compact('post'));
+    }
+
+    public function store()
+    {
+        // $post->addPost(
+        //     new Post($request->all())
+        //     );
+        // return back();
+        $input = Input::all();
+        Post::create([
+            'title' => $input['postText'],
+            'email' => Auth::user()->email,
+        ]);
+        return back();
     }
 }
