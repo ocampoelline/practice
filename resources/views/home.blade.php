@@ -38,8 +38,11 @@
                     
                     @foreach ($posts as $post)
                             <label><a href="home\{{ $post->id }}">{{ $post->title }} </a></label>
-                            <BR>
-                            <label>{{ $post->email }}</label>
+
+                            <label class="pull-right">{{ $post->updated_at->format('F d, Y') }}</label>
+                            <br>
+                            <label class="pull-right">by {{ $post->email }}</label>
+                            
                             <hr>
                     @endforeach
 
