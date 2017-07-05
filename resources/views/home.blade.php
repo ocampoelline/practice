@@ -34,19 +34,25 @@
             </div>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                
                     
                     @foreach ($posts as $post)
-                            <label><a href="home\{{ $post->id }}">{{ $post->title }} </a></label>
-
+                            <!-- <label class="pull-left"></label>
+                            <label class="pull-left"><a href="home\{{ $post->id }}">Add Comment </a></label>
                             <label class="pull-right">{{ $post->updated_at->format('F d, Y') }}</label>
-                            <br>
-                            <label class="pull-right">by {{ $post->email }}</label>
+                            <label class="pull-right">by {{ $post->email }}</label> -->
+                            <div class="panel-heading">
+                            <label class="control-label pull-right">{{$post->email}}kk</label>
+                            <label>{{ $post->updated_at->format('F d, Y') }}</label>
+                            <h1><a href="home\{{ $post->id }}">{{ $post->title }}</a></h1>
+                                                       </div>
+                            <!-- <label class="col-md-4"><a href="home\{{ $post->id }}">{{ $post->title }} </a></label>
+                            <label class="col-md-4"><a href="home\{{ $post->id }}">{{ $post->title }} </a></label>
+                            <label class="col-md-4"><a href="home\{{ $post->id }}">{{ $post->title }} </a></label> -->
                             
-                            <hr>
                     @endforeach
 
-                </div>
+                
             </div>
         </div>
     </div>
